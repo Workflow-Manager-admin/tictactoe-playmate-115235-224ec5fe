@@ -1,0 +1,195 @@
+/* CSS Variables for Theme Management */
+:root {
+  /* Main palette for minimalistic tic tac toe theme */
+  --accent: #ffd600;
+  --primary: #1a73e8;
+  --secondary: #e8eaf6;
+  --bg-primary: #fff;
+  --bg-secondary: #e8eaf6;
+  --text-primary: #191c21;
+  --text-secondary: #7a7f8a;
+  --board-border: #e0e0e0;
+  --button-bg: #1a73e8;
+  --button-text: #fff;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #282c34;
+  --text-primary: #ffffff;
+  --text-secondary: #61dafb;
+  --border-color: #404040;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
+}
+
+.App {
+  text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Tic Tac Toe UI --- */
+
+.ttt-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding-bottom: 48px;
+}
+
+.ttt-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin: 38px 0 22px 0;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: var(--primary);
+}
+
+.ttt-board {
+  box-shadow: 0 6px 22px 0 rgba(33, 150, 243, 0.06);
+  border: 2px solid var(--board-border);
+  background: var(--secondary);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  width: max-content;
+  transition: box-shadow 0.23s, border-color 0.16s;
+}
+
+.ttt-row {
+  display: flex;
+}
+
+.ttt-square {
+  width: 74px;
+  height: 74px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--board-border);
+  margin: 0;
+  outline: none;
+  color: var(--primary);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, box-shadow 0.2s;
+  line-height: 1;
+  border-radius: 12px;
+  margin: 10px;
+  box-shadow: 0 1.5px 10px rgba(26,115,232,0.035);
+  user-select: none;
+}
+
+.ttt-square:disabled {
+  color: #c7c7c7;
+  background: var(--secondary);
+  cursor: default;
+}
+
+.ttt-status {
+  margin: 14px 0 4px 0;
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  min-height: 34px;
+}
+
+.ttt-controls {
+  margin: 18px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 320px;
+  max-width: 92vw;
+}
+
+.ttt-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.ttt-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  min-width: 64px;
+  font-weight: 500;
+}
+
+.ttt-btn {
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 1rem;
+  border: 1.2px solid var(--primary);
+  border-radius: 7px;
+  padding: 6px 16px;
+  margin: 0 2px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, border 0.1s, color 0.13s;
+  box-shadow: 0 1px 6px rgba(33,150,243,0.04);
+}
+
+.ttt-btn:hover, .ttt-btn.active, .ttt-btn:focus-visible {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.ttt-restart {
+  background: var(--accent);
+  color: #191c21;
+  border-color: var(--accent);
+}
+.ttt-restart:hover, .ttt-restart:active, .ttt-restart:focus-visible {
+  background: #ffe270;
+  border-color: var(--accent);
+  color: #191c21;
+}
+
+.ttt-footer {
+  margin-top: 32px;
+  color: #bababa;
+  font-size: 0.95em;
+  opacity: 0.97;
+  text-align: center;
+  padding-top: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .ttt-main {
+    min-height: unset;
+    padding-bottom: 24px;
+  }
+  .ttt-title {
+    font-size: 1.4rem;
+    margin: 24px 0 13px 0;
+  }
+  .ttt-board {
+    border-radius: 8px;
+  }
+  .ttt-square {
+    width: 47px;
+    height: 47px;
+    font-size: 1.3rem;
+    margin: 4px;
+    border-radius: 6px;
+  }
+  .ttt-controls {
+    width: 99vw;
+    max-width: 100vw;
+    font-size: 0.9rem;
+  }
+}
